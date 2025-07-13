@@ -25,8 +25,8 @@ const Signup = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            // const url = "https://nasa-space-app-server.vercel.app/api/v1/users";
-            const url = "http://localhost:3543/api/v1/users";
+            const backend_url = import.meta.env.VITE_BACKEND_URL; // Make sure this is configured in your environment
+            const url = backend_url + "/api/v1/users";
             const {data: res} = await axios.post(url, data);
             navigate("/login");
             console.log(res.message);
@@ -101,3 +101,4 @@ const Signup = () => {
 
 }
 export default Signup;
+
